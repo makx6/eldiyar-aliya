@@ -102,7 +102,7 @@
 
       <div>
         <a href="https://2gis.kg/bishkek/firm/70000001047984986">
-         <img src="./assets/2gis.png" width="90px"/>
+         <img src="./assets/2gis.png" width="90px" style="border: 3px solid white; border-radius: 20px"/>
         </a>
 
 
@@ -374,6 +374,14 @@ onBeforeUnmount(() => {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pattaya&display=swap');
 
+@font-face {
+  font-family: 'Kindentosca';
+  src: url('./assets/Kindentosca.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .highlight {
   font-family: 'Great Vibes', cursive; /* или любой другой шрифт */
   font-size: 25px;
@@ -558,8 +566,8 @@ onBeforeUnmount(() => {
 }
 
 .name {
-  font-family: "Great Vibes", cursive;
-  font-size: 60px;
+  font-family: "Kindentosca", cursive;
+  font-size: 50px;
   text-align: center;
   font-weight: 600;
 }
