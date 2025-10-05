@@ -11,6 +11,21 @@
         {{ isPlaying ? "⏸" : "▶" }}
       </button>
 
+      <div style="font-family: 'Great Vibes'; font-size: 25px; position: relative">
+        музыка
+
+
+      <div>
+        <img src="./assets/arrow.png" alt="arrow" style="     position: absolute;
+    rotate: -360deg;
+    width: 70px;
+    top: -36px;
+    right: 37px;
+"/>
+      </div>
+      </div>
+
+
       <audio
           ref="audioRef"
           :src="musicSrc"
@@ -525,10 +540,28 @@ onBeforeUnmount(() => {
 /* Музыкальный блок (правый верхний угол) */
 .wedding-invite__music {
   display: flex;
+  justify-content: flex-end;
+  flex-flow: column;
+  align-content: flex-end;
+  align-items: flex-end;
+  margin: 10px;
 }
 
 .music-toggle {
-  visibility: hidden;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #000;
+  color: white;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s;
+  z-index: 1000;
 }
 
 /* Основной контент по центру */
