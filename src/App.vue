@@ -484,19 +484,16 @@ onBeforeUnmount(() => {
 
 }
 
-
-/* БЭМ-подобные классы, аккуратно и читаемо */
 .wedding-invite {
   position: relative;
   width: 100%;
   min-height: 100vh;
 
-  /* Фон */
-  background-image: url("./assets/3.jpg");
-  background-size: cover;        /* растягиваем изображение на весь экран */
-  background-position: center;   /* центрирование */
+  background-image: url("./assets/2.jpg");
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;  /* фиксируем фон, чтобы не скроллился */
+  background-attachment: fixed;
 
   display: flex;
   flex-direction: column;
