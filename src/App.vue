@@ -228,11 +228,16 @@ const updateCountdown = () => {
 onMounted(() => {
   updateCountdown()
   timer = setInterval(updateCountdown, 1000)
-  window.addEventListener("touchstart", onTouch, { once: true, passive: true });
+  window.addEventListener("pointerdown", onTouch, { once: true });
+  window.addEventListener("touchstart", onTouch, { once: true });
+  window.addEventListener("click", onTouch, { once: true });
+
 })
 
 onUnmounted(() => {
+  window.removeEventListener("pointerdown", onTouch);
   window.removeEventListener("touchstart", onTouch);
+  window.removeEventListener("click", onTouch);
   clearInterval(timer)
 })
 
