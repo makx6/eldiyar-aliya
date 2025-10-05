@@ -489,9 +489,9 @@ onBeforeUnmount(() => {
   width: 100%;
   min-height: 100vh;
 
-  background-image: url("./assets/4.jpg");
+  background-image: url("./assets/3.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 
