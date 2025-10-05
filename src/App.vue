@@ -547,12 +547,18 @@ onBeforeUnmount(() => {
   border-radius: 120px 120px 0 0;
   object-fit: cover;
 }
+p {
+  margin: 0;
+  padding: 0;
+}
 
 .wedding-invite__message {
   font-family: "Great Vibes", cursive;
   font-size: 26px;
   text-align: center;
   margin-top: 15px;
+
+
 }
 
 /* Имена пары */
