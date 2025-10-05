@@ -252,12 +252,12 @@ const events = [
   {
     title: "Фуршет регистрация",
     time: "17:00",
-    img: sd,
+    img: sd1,
   },
   {
     title: "Начало программы",
     time: "18:00",
-    img:sd1,
+    img:sd,
   },
   {
     title: "Торт",
@@ -486,30 +486,21 @@ onBeforeUnmount(() => {
 
 .wedding-invite {
   position: relative;
-  width: 100%;
   min-height: 100vh;
-
-  background-image: url("./assets/3.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  overflow-x: hidden;
 }
 
 .wedding-invite::before {
   content: "";
-  position: fixed; /* фиксированный слой, чтобы оставался на месте */
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.6); /* регулируй прозрачность */
-  pointer-events: none; /* чтобы клики проходили к контенту */
-  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  background:
+      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+      url("./assets/1.jpg") center/cover no-repeat;
+  z-index: -1; /* чтобы был под контентом */
 }
 
 /* Контент выше слоя фона */
