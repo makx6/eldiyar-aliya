@@ -72,7 +72,7 @@
 
 
         <section class="program">
-          <h2 class="program-title">Программа торжества</h2>
+          <h2 class="program-title">Программа&nbsp;&nbsp;торжества</h2>
 
           <div class="timeline">
             <div class="event" v-for="item in events" :key="item.time">
@@ -461,8 +461,8 @@ onBeforeUnmount(() => {
 
 .heart-icon {
   position: absolute;
-  bottom: 2px;
-  right: -1px;
+  bottom: -5px;
+  right: -7px;
   font-size: 14px;
 }
 
