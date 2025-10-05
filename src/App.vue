@@ -43,7 +43,7 @@
     <span class="highlight">День нашей свадьбы</span>.
   </span>
         <div>
-          <img alt="photo" src="./assets/2.jpg" width="90px"/>
+          <img alt="photo" src="./assets/5.jpg" width="90px"/>
         </div>
       </section>
 
@@ -78,7 +78,7 @@
             <div class="event" v-for="item in events" :key="item.time">
               <div class="event-left">
                 <div class="event-text" style="word-break: break-word; width: 150px; font-weight: 400">{{ item.title }}</div>
-                <div class="event-time">{{ item.time }}</div>
+                <b class="event-time">{{ item.time }}</b>
               </div>
 
               <div class="line"></div>
@@ -95,15 +95,24 @@
           <h2 class="program-title">Место проведения</h2>
 
           <div style="display: flex; flex-flow: column;gap:10px">
-            <span>Bellagio Banquet Hall</span>
-            <span style="margin-bottom: 10px;">Улица Льва Толстого, 36к/1</span>
+            <span>Bellagio Premium</span>
+            <span style="margin-bottom: 10px;">ул. Токтогула, 125/1, 4-этаж</span>
           </div>
 
 
       <div>
-        <a href="https://2gis.kg/bishkek/firm/70000001035315188?m=74.631984%2C42.865317%2F18">
+        <a href="https://2gis.kg/bishkek/firm/70000001047984986">
          <img src="./assets/2gis.png" width="90px"/>
         </a>
+
+
+
+        <div style="font-family: 'Great Vibes';    font-size: 25px; position: relative">
+          нажми на меня
+
+          <img src="./assets/arrow.png" alt="arrow" style=" position:  absolute;rotate: 180deg; width: 70px; top: -35px;
+    right: -13px;"/>
+        </div>
       </div>
         </section>
 
@@ -152,7 +161,9 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount,onUnmounted } from "vue";
 import musicSrc from "./assets/yildiz.mp3";
-import sd from './assets/1.jpg'
+import sd from './assets/7.jpg'
+import sd1 from './assets/8.jpg'
+import sd2 from './assets/9.jpg'
 
 /* Refs */
 const audioRef = ref(null);
@@ -217,11 +228,25 @@ const updateCountdown = () => {
 onMounted(() => {
   updateCountdown()
   timer = setInterval(updateCountdown, 1000)
+  window.addEventListener("touchstart", onTouch, { once: true, passive: true });
 })
 
 onUnmounted(() => {
+  window.removeEventListener("touchstart", onTouch);
   clearInterval(timer)
 })
+
+const onTouch = () => {
+  const audio = audioRef.value;
+  if (!audio || hasStarted.value) return;
+
+  hasStarted.value = true;
+  audio.muted = false;  // сразу снимаем muted
+  audio.play().catch(err => console.log("play error", err));
+  fadeIn(audio, 1500);
+  isPlaying.value = true;
+  removeGestureListeners();
+};
 
 const events = [
   {
@@ -232,12 +257,12 @@ const events = [
   {
     title: "Начало программы",
     time: "18:00",
-    img:sd,
+    img:sd1,
   },
   {
     title: "Торт",
-    time: "23:00",
-    img: sd,
+    time: "22:00",
+    img: sd2,
   },
 ];
 /**
@@ -347,7 +372,7 @@ onBeforeUnmount(() => {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pattaya&display=swap');
 
 .highlight {
   font-family: 'Great Vibes', cursive; /* или любой другой шрифт */
@@ -437,7 +462,7 @@ onBeforeUnmount(() => {
 .heart-icon {
   position: absolute;
   bottom: 2px;
-  right: 1px;
+  right: -1px;
   font-size: 14px;
 }
 
@@ -467,7 +492,7 @@ onBeforeUnmount(() => {
   min-height: 100vh;
 
   /* Фон */
-  background-image: url("./assets/1.jpg");
+  background-image: url("./assets/3.jpg");
   background-size: cover;        /* растягиваем изображение на весь экран */
   background-position: center;   /* центрирование */
   background-repeat: no-repeat;
